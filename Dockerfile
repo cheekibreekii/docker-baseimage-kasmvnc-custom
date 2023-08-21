@@ -214,12 +214,12 @@ RUN \
   echo "**** grab source ****" && \
   mkdir -p /kclient && \
   if [ -z ${KCLIENT_RELEASE+x} ]; then \
-    KCLIENT_RELEASE=$(curl -sX GET "https://api.github.com/repos/linuxserver/kclient/releases/latest" \
+    KCLIENT_RELEASE=$(curl -sX GET "https://api.github.com/repos/cheekibreekii/kclient-custom/releases/latest" \
     | awk '/tag_name/{print $4;exit}' FS='[""]'); \
   fi && \
   curl -o \
   /tmp/kclient.tar.gz -L \
-    "https://github.com/linuxserver/kclient/archive/${KCLIENT_RELEASE}.tar.gz" && \
+    "https://github.com/cheekibreekii/kclient-custom/archive/${KCLIENT_RELEASE}.tar.gz" && \
   tar xf \
   /tmp/kclient.tar.gz -C \
     /kclient/ --strip-components=1
@@ -283,7 +283,6 @@ RUN \
     mesa-va-gallium \
     mesa-vulkan-ati \
     mesa-vulkan-intel \
-    nginx \
     nodejs \
     openbox \
     openssh-client \
